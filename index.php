@@ -3,10 +3,10 @@ session_start();
 
 // Check if the logout button has been clicked
 if (isset($_POST['logout'])) {
-    session_unset(); // Unset all session variables
-    session_destroy(); 
-    header("Location: frontend/pages/signin.html");
-    exit();
+  session_unset(); // Unset all session variables
+  session_destroy();
+  header("Location: frontend/pages/signin.html");
+  exit();
 }
 
 // Simplified Check for logged-in user or guest
@@ -71,18 +71,18 @@ if (!isset($_SESSION['userid']) && !isset($_SESSION['guest'])) {
         </ul>
         <!--login logout functionality-->
         <?php
-    if (isset($_SESSION['userid'])) {
-        // If the user is logged in, display the welcome message and logout button
-        echo "Welcome, " . $_SESSION['username'] . "";
-        echo '<form action="" method="POST">
+        if (isset($_SESSION['userid'])) {
+          // If the user is logged in, display the welcome message and logout button
+          echo "Welcome, " . $_SESSION['username'] . "";
+          echo '<form action="" method="POST">
                 &nbsp &nbsp<button class="btn btn-outline-success" type="submit" name="logout"">Signout</button>
               </form>';
-    } else {
-        // If the user is not logged in, display the login and signup buttons
-        echo '<button class="btn btn-outline-success" style="align:right;" onClick="goToLogin()">Log in</button>';
-        echo '&nbsp<button class="btn btn-outline-success" style="align:right;" onClick="goToSignUp()">Sign up</button>';
-    }
-    ?>
+        } else {
+          // If the user is not logged in, display the login and signup buttons
+          echo '<button class="btn btn-outline-success" style="align:right;" onClick="goToLogin()">Log in</button>';
+          echo '&nbsp<button class="btn btn-outline-success" style="align:right;" onClick="goToSignUp()">Sign up</button>';
+        }
+        ?>
       </div>
     </div>
   </nav>
@@ -134,13 +134,13 @@ if (!isset($_SESSION['userid']) && !isset($_SESSION['guest'])) {
       <div class="overlay">
         <!--greeting user-->
         <?php
-           if (isset($_SESSION['userid'])) {
-              // If the user is logged in, display the welcome message and logout button
-               echo "<h2>Hi, " . $_SESSION['username'] . "</h2>";
-          } else {
-              // If the user is not logged in, display the login and signup buttons
-              echo "<h2>Hi, " . $_SESSION['username'] . "</h2>";
-          }
+        if (isset($_SESSION['userid'])) {
+          // If the user is logged in, display the welcome message and logout button
+          echo "<h2>Hi, " . $_SESSION['username'] . "</h2>";
+        } else {
+          // If the user is not logged in, display the login and signup buttons
+          echo "<h2>Hi, " . $_SESSION['username'] . "</h2>";
+        }
         ?>
 
 
